@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2nd Anniversary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .bear-container {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .bear {
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="95" fill="%23a57c5c" stroke="%238b5a2b" stroke-width="2"/><circle cx="70" cy="80" r="20" fill="white"/><circle cx="130" cy="80" r="20" fill="white"/><circle cx="70" cy="80" r="10" fill="black"/><circle cx="130" cy="80" r="10" fill="black"/><ellipse cx="100" cy="120" rx="25" ry="15" fill="%238b5a2b"/><circle cx="60" cy="60" r="15" fill="%23a57c5c"/><circle cx="140" cy="60" r="15" fill="%23a57c5c"/></svg>') no-repeat center;
+            background-size: contain;
+            margin: 0 auto;
+        }
+
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ff6b6b" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+            background-size: contain;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .heart:hover {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        .message {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 2.2rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .falling-heart {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            color: #ff6b6b;
+            animation: fall linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%); }
+            50% { transform: translate(-50%, -55%); }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .bear {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .heart {
+                width: 60px;
+                height: 60px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bear-container">
+            <div class="bear"></div>
+            <div class="heart" id="heart"></div>
+        </div>
+        
+        <div class="message" id="message">
+            <h1>Happy 2nd Anniversary meri jaan 💖</h1>
+            <p>Do saal ho gaye, par lagta hai jaise kal hi tum meri life mein aayi thi aur sab kuch badal gaya.</p>
+            <p>Har din tumhare saath ek blessing hai. Tum meri khushi, meri peace aur meri duniya ho.</p>
+            <p>I love you endlessly, meri zindagi 💍💫</p>
+            <p>And I know abhi har chiz thodi bakar chal rahi hai, but don't worry ji — sab theek ho jayega 💫</p>
+            <p>Aap haar mat maaniye, sab theek ho jayega, bas thoda sa patience rakhiye.</p>
+            <p>Aapka paper bhi accha jayega, mocks bekar ja rahe hain uski tension mat lo.</p>
+            <p>Bas jo galtiyaan ho rahi hain unpe dhyan do, bina stress ke unhe sudhaaro 💪</p>
+            <p>Apne aap ko dusro se compare mat karo — apne last year wale version se compare karo.</p>
+            <p>Kyunki un logon ka focus sirf padhai par hai, par aap to ek <span class="highlight">strong soul</span> ho jo sab handle karti ho — ghar, emotions, sab kuch ❤️</p>
+            <p>Mujhe aap par pura bharosa hai, meri <span class="highlight">fighter</span> 💫</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heart = document.getElementById('heart');
+            const message = document.getElementById('message');
+            const body = document.body;
+            
+            heart.addEventListener('click', function() {
+                // Show the message
+                message.classList.add('show');
+                
+                // Create falling hearts
+                createFallingHearts();
+                
+                // Hide the heart after click
+                heart.style.display = 'none';
+            });
+            
+            function createFallingHearts() {
+                const heartCount = 50;
+                
+                for (let i = 0; i < heartCount; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.classList.add('falling-heart');
+                        heart.innerHTML = '💖';
+                        
+                        // Random position
+                        const left = Math.random() * 100;
+                        heart.style.left = `${left}vw`;
+                        
+                        // Random animation duration
+                        const duration = 3 + Math.random() * 5;
+                        heart.style.animationDuration = `${duration}s`;
+                        
+                        // Random size
+                        const size = 20 + Math.random() * 30;
+                        heart.style.fontSize = `${size}px`;
+                        
+                        body.appendChild(heart);
+                        
+                        // Remove heart after animation completes
+                        setTimeout(() => {
+                            heart.remove();
+                        }, duration * 1000);
+                    }, i * 200); // Stagger the creation of hearts
+                }
+            }
+        });
+    </script>
+</body>
+</html>
